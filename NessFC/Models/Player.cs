@@ -19,6 +19,7 @@ namespace NessFC.Models
         public int Number { get; set; }
         [ForeignKey("PositionId")]
         public int PositionId { get; set; }
+        public Position Position { get; set; }
         [Required]
         public int Age { get; set; }
         [Required]

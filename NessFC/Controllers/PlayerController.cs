@@ -28,7 +28,16 @@ namespace NessFC.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()   
         {
-            return await _context.Players.ToListAsync();          
+            var players = await _context.Players.ToListAsync(); 
+            
+            foreach(var player in players)
+            {
+                var position = await _context.Positions.FindAsync(player.PositionId);
+                player.Position = position;
+                player.Position.Players = null;
+            }
+
+            return players;
         }
 
 
@@ -41,6 +50,14 @@ namespace NessFC.Controllers
 
             if (player == null)
                 return NotFound();
+
+            var position = await _context.Positions.FindAsync(player.PositionId);
+            player.Position = position;
+
+            var players = _context.Players.Where(player => player.PositionId == position.Id).ToList();
+
+            player.Position.Players = players;
+
             return player;
         }
 
@@ -64,7 +81,6 @@ namespace NessFC.Controllers
 
                 if (player == null)
                     return NotFound();
-                return NotFound();
                 throw;
             }
 

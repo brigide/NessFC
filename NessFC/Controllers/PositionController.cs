@@ -41,6 +41,11 @@ namespace NessFC.Controllers
 
             if (position == null)
                 return NotFound();
+
+            var players = _context.Players.Where(player => player.PositionId == position.Id).ToList();
+
+            position.Players = players;
+
             return position;
         }
 

@@ -28,3 +28,7 @@ C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\obj\Debug\netcoreapp3.1\NessFC.c
 C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\obj\Debug\netcoreapp3.1\NessFC.dll
 C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\obj\Debug\netcoreapp3.1\NessFC.pdb
 C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\obj\Debug\netcoreapp3.1\NessFC.genruntimeconfig.cache
+C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Bruno.Osse\Documents\www\NessFC\NessFC\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

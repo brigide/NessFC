@@ -15,5 +15,6 @@ namespace NessFC.Models
 
         [Column(TypeName = "varchar(100)")]
         public string Name { get; set; }
+        public List<Player> Players { get; set; }
     }
 }

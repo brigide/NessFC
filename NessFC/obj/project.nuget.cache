@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WbN3hHhw1xCXP3E9fLBz30Xbd+pCgGmEPvqobxxtIUbHotE6VWSxqB0mvpl7mlJt4zxSs7FjClM/VIfb3QYqOw==",
+  "dgSpecHash": "cQd6x3RO/676VyrPLP9mcsXzWajnAUmle4LyA13Sx1fFfqGVIIxEDvRAOvU4ZjqMvjJtweA/8XqNpfTs8OT4xw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Bruno.Osse\\Documents\\www\\NessFC\\NessFC\\NessFC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
+    "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -24,6 +26,8 @@
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.0\\microsoft.extensions.logging.abstractions.3.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.extensions.options\\3.1.0\\microsoft.extensions.options.3.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.0\\microsoft.extensions.primitives.3.1.0.nupkg.sha512",
+    "C:\\Users\\Bruno.Osse\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Bruno.Osse\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\npgsql\\4.1.2\\npgsql.4.1.2.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\3.1.0\\npgsql.entityframeworkcore.postgresql.3.1.0.nupkg.sha512",
     "C:\\Users\\Bruno.Osse\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
