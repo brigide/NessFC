@@ -13,11 +13,11 @@ namespace NessFC.Controllers
     public class PlayerController : ControllerBase
     {
         //Define private database context
-        private readonly PlayerDbContext _context;                           
+        private readonly NessDbContext _context;                           
 
 
         //Controller Constructor
-        public PlayerController(PlayerDbContext context)                    
+        public PlayerController(NessDbContext context)                    
         {
             _context = context;                                         
         }
@@ -39,7 +39,7 @@ namespace NessFC.Controllers
         {
             var player = await _context.Players.FindAsync(id);
 
-            if(player == null)
+            if (player == null)
                 return NotFound();
             return player;
         }
@@ -77,6 +77,11 @@ namespace NessFC.Controllers
         [HttpPost]
         public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
+            var position = await _context.Positions.FindAsync(player.PositionId);
+
+            if (position == null)
+                return NotFound();
+
             _context.Players.Add(player);
             await _context.SaveChangesAsync();
 

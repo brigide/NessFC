@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace NessFC.Models
 {
+    [Table("Positions")]
     public class Position
     {
         [Key]

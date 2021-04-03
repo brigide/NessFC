@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210403014154_CreatePositions.cs" />
-    <Compile Remove="Migrations\20210403014154_CreatePositions.Designer.cs" />
+    <Compile Remove="Migrations\20210403042725_FixForeignKey.cs" />
+    <Compile Remove="Migrations\20210403042725_FixForeignKey.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

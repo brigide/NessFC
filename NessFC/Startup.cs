@@ -28,7 +28,7 @@ namespace NessFC
         {
             services.AddControllers();
 
-            services.AddDbContext<PlayerDbContext>(options =>
+            services.AddDbContext<NessDbContext>(options =>
                 options.UseNpgsql(Configuration["DBConnection:ConnectionString"])
             );
         }
