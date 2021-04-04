@@ -1,0 +1,13 @@
+.header {
+    background-color: #001C41;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content {
+    border: 1px solid red;
+    padding: 10px;
+    width: 70vw;
+}
