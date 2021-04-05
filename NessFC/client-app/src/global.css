@@ -12,3 +12,21 @@ body{
     background: #CBD2DC;
     -webkit-font-smoothing: antialiased;
 }
+
+.item {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.item:hover {
+    border-bottom: 2px solid #000;
+}
+
+.selected-item {
+    font-size: 20px;
+    color: #C69B08;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #C69B08;
+}

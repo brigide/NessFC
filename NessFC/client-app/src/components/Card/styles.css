@@ -1,0 +1,39 @@
+.card {
+    text-decoration: none;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.player-card {
+    width: 214px;
+    height: 250px;
+
+    border-radius: 10px;
+
+    background-image: url("../../assets/card.png");
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-number {
+    font-size: 60px;
+    color: #C69B08;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.player-name {
+    font-size: 18px;
+    color: #C69B08;
+    font-weight: bold;
+    margin-top: 40px;
+}

@@ -7,7 +7,24 @@
 }
 
 .header-content {
-    border: 1px solid red;
     padding: 10px;
     width: 70vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title {
+    color: #C69B08;
+}
+
+.header-leave {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-back {
+    color: #C69B08;
+    font-size: 20px;
+    padding-right: 10px;
 }

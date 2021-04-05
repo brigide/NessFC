@@ -12,4 +12,9 @@
 
 .slogan {
     margin-bottom: 2em;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
 }

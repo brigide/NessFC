@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import { FiArrowRight } from 'react-icons/fi';
 
 import Button from '../../components/Button';
 
@@ -18,7 +19,11 @@ export default function Home(){
             <h2 className="slogan">Gerencie posições e jogadores do<br />
              tradicional clube de São Paulo</h2>
 
-             <Link to="/players"><Button text="Iniciar" icon="ArrowRight"/></Link>
+            <Link to="/players" className="link">
+                <Button text="Iniciar">
+                    <FiArrowRight className="icon" size={20} color="#C69B08"/>
+                </Button>
+            </Link>
         </div>
     );
 }

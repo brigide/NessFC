@@ -1,0 +1,105 @@
+.player-content{ 
+    display: flex;
+    justify-content: center;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
+}
+
+.player-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-escudo {
+    width: 20vw;
+}
+
+.data-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    align-items: center;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+.bts {
+    display: flex;
+    flex-direction: row;
+}
+
+.bt {
+    margin-left: 10px;
+}
+
+
+
+.player-info {
+    width: 55vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.data {
+    margin-top: 48px;
+    margin-left: 24px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+.left-data {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-data span {
+    font-size: 16px;
+}
+
+.right-data {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-data h1 {
+    margin-top: -15px;
+    font-size: 60px;
+}
+
+
+
+
+
+
+
+.other-players {
+    margin-top: 48px;
+}
+
+
+
+.player-listing {
+    margin-top: 24px;
+    padding-right: 0px;
+    padding-bottom: 50px;
+    width: 70vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 33px;
+}

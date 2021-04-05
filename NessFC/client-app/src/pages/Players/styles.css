@@ -1,0 +1,30 @@
+.players {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.players-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70vw;
+
+    padding-top: 24px;
+}
+
+.players-bt {
+    align-self: flex-end;
+}
+
+.player-listing {
+    margin-top: 24px;
+    padding-right: 0px;
+    padding-bottom: 50px;
+    width: 70vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 33px;
+}
+
