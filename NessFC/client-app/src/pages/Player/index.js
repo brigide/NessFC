@@ -6,8 +6,8 @@ import { FiEdit, FiArrowLeft } from 'react-icons/fi';
 
 import Header from '../../components/Header';
 import Button from '../../components/Button';
-import Menu from '../../components/Menu';
 import Card from '../../components/Card';
+import PlayerModal from '../../components/PlayerModal';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -15,7 +15,10 @@ import logoImg from '../../assets/logo.svg';
 export default function Player(props){
     const [player, setPlayer] = useState({});
     const [position, setPosition] = useState({});
+    const [positions, setPositions] = useState({});
     const [players, setPlayers] = useState([]);
+
+    const [modal, setModal] = useState(false);
 
     const { match: { params } } = props;
 
@@ -26,21 +29,35 @@ export default function Player(props){
             setPlayers(response.data.position.players);
             setPosition(response.data.position);
             setPlayer(response.data);
+        });
+        api.get('api/position').then(response => {
+            setPositions(response.data);
         })
     }, [params.id]);
 
     async function handleDeletePlayer(id){
-        try{
-            await api.delete(`api/player/${id}`);
-            history.push('/players');    
-        }
-        catch(err){
-            alert('Erro ao deletar jogador, tente novamente');
+        const accept = window.confirm("Você tem certeza que deseja apagar o jogador?");
+
+        if(accept) {
+            try{
+                await api.delete(`api/player/${id}`);
+                history.push('/players');    
+            }
+            catch(err){
+                alert('Erro ao deletar jogador, tente novamente');
+            }
         }
     }
 
     return (
         <>
+            {modal && <PlayerModal title="Editar Jogador" positions={positions} onClose={() => setModal(false)} method="put"
+                id={player.id}
+                nome={player.name}
+                numero={player.number}
+                posicao={position.id}
+                idade={player.age}
+                peso={player.weight} />}
             <Header />
             <div className="player-content">
             <div className="player">
@@ -54,8 +71,8 @@ export default function Player(props){
                                 text="Excluir Jogador"
                                 pos="bt right red"
                                 textColor="black"
-                                onClick={handleDeletePlayer(player.id)} />
-                            <Button text="Editar Jogador" pos="bt right">
+                                click={() => handleDeletePlayer(player.id)} />
+                            <Button text="Editar Jogador" pos="bt right" click={() => setModal(true)}>
                                 <FiEdit className="icon" size={20} color="#C69B08"/>
                             </Button>
                         </div>

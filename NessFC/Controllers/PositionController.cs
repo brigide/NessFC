@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using NessFC.Models;
 
 namespace NessFC.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class PositionController : ControllerBase

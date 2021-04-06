@@ -1,3 +1,8 @@
+button {
+    border: 0;
+    cursor: pointer;
+}
+
 .bt {
     background-color: #001C41;
     border-radius: 10px;

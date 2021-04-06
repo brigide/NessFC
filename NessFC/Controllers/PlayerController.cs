@@ -67,7 +67,7 @@ namespace NessFC.Controllers
         //Change epecific player's properties
         //PUT: api/player/2
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutPlayer(int id, Player player)
+        public async Task<ActionResult<Player>> PutPlayer(int id, Player player)
         {
             player.Id = id;
 
@@ -86,7 +86,7 @@ namespace NessFC.Controllers
                 throw;
             }
 
-            return NoContent();
+            return player;
         }
 
 

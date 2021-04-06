@@ -1,0 +1,78 @@
+.modal {
+    position: absolute;
+    width: 300px;
+    height: fit-content;
+    padding: 16px 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #CBD2DC;
+    border-radius: 10px;
+
+    z-index: 999;
+}
+
+.modal h1 {
+    margin-bottom: 15px;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    z-index: 998;
+}
+
+.modal-form input{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 10px;
+}
+
+.modal-form select{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 10px;
+}
+
+.modal-bt {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.cancel-bt {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 10px;
+}
+
+.confirm-bt {
+    background-color: #001C41;
+    border: 1px solid #001C41;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 10px;
+    color: #C69B08;
+    font-weight: bold;
+    margin-left: 10px;
+}
