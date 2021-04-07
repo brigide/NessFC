@@ -7,10 +7,13 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import Menu from '../../components/Menu';
 import Item from '../../components/Item';
+import PositionModal from '../../components/PositionModal';
 
 
 export default function Positions(){
     const [positions, setPositions] = useState([]);
+
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         api.get('api/position').then(response => {
@@ -20,11 +23,12 @@ export default function Positions(){
 
     return (
         <>
+            {modal && <PositionModal title="Criar Posição" onClose={() => setModal(false)} />}
             <Header />
                 <div className="positions">
 
                     <div className="positions-content">
-                        <Button text="Nova Posição" pos="bt right">
+                        <Button text="Nova Posição" pos="bt right" click={() => setModal(true)}>
                             <FiPlus className="icon" size={20} color="#C69B08"/>
                         </Button>
 

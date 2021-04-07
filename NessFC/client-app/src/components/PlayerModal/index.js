@@ -33,8 +33,8 @@ export default function PlayerModal({ title, positions, onClose = () => {}, meth
         }
         if(method === "put"){
             try{
-                const res = await api.put(`api/player/${id}`, data);
-                history.push(`/players/${res.data.id}`);
+                await api.put(`api/player/${id}`, data);
+                history.push(`/players`);
                 onClose();
             }
             catch(err){
