@@ -45,6 +45,11 @@ namespace NessFC
             services.AddDbContext<NessDbContext>(options =>
                 options.UseNpgsql(Configuration["DBConnection:ConnectionString"])
             );
+
+            services.AddTransient<IRepository<Player>, PlayerRepository>();
+            services.AddTransient<IRepository<Position>, PositionRepository>();
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,15 +14,20 @@ namespace NessFC.Controllers
     [ApiController]
     public class PositionController : ControllerBase
     {
-        //Define private database context
+        //Define private database context and models repositories
         private readonly NessDbContext _context;
+        private readonly IRepository<Player> playerRepository;
+        private readonly IRepository<Position> positionRepository;
 
 
         //Controller Constructor
-        public PositionController(NessDbContext context)
+        public PositionController(NessDbContext context, IRepository<Player> playerRepo, IRepository<Position> positionRepo)
         {
             _context = context;
+            playerRepository = playerRepo;
+            positionRepository = positionRepo;
         }
+
 
 
         //List all positions
@@ -30,7 +35,7 @@ namespace NessFC.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Position>>> GetPositions()
         {
-            return await _context.Positions.ToListAsync();
+            return await positionRepository.ToListAsync();
         }
 
 
@@ -39,12 +44,12 @@ namespace NessFC.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Position>> GetPosition(int id)
         {
-            var position = await _context.Positions.FindAsync(id);
+            var position = await positionRepository.FindByIdAsync(id);
 
             if (position == null)
                 return NotFound();
 
-            var players = _context.Players.Where(player => player.PositionId == position.Id).ToList();
+            var players = playerRepository.List.Where(player => player.PositionId == position.Id).ToList();
 
             position.Players = players;
 
@@ -57,7 +62,7 @@ namespace NessFC.Controllers
         [HttpPost]
         public async Task<ActionResult<Position>> PostPosition(Position position)
         {
-            _context.Positions.Add(position);
+            positionRepository.Add(position);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPosition", new { id = position.Id }, position);
@@ -69,12 +74,12 @@ namespace NessFC.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Position>> DeletePosition(int id)
         {
-            var position = await _context.Positions.FindAsync(id);
+            var position = await positionRepository.FindByIdAsync(id);
 
             if (position == null)
                 return NotFound();
 
-            _context.Positions.Remove(position);
+            positionRepository.Delete(position);
             await _context.SaveChangesAsync();
 
             return position;

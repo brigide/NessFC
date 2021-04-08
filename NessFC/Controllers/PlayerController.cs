@@ -14,14 +14,18 @@ namespace NessFC.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        //Define private database context
-        private readonly NessDbContext _context;                           
+        //Define private database context and models repositories
+        private readonly NessDbContext _context;
+        private readonly IRepository<Player> playerRepository;
+        private readonly IRepository<Position> positionRepository;
 
 
         //Controller Constructor
-        public PlayerController(NessDbContext context)                    
+        public PlayerController(NessDbContext context, IRepository<Player> playerRepo, IRepository<Position> positionRepo)                    
         {
-            _context = context;                                         
+            _context = context;
+            playerRepository = playerRepo;
+            positionRepository = positionRepo;
         }
 
 
@@ -30,11 +34,11 @@ namespace NessFC.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()   
         {
-            var players = await _context.Players.ToListAsync(); 
+            var players = await playerRepository.ToListAsync(); 
             
             foreach(var player in players)
             {
-                var position = await _context.Positions.FindAsync(player.PositionId);
+                var position = await positionRepository.FindByIdAsync(player.PositionId);
                 player.Position = position;
                 player.Position.Players = null;
             }
@@ -48,15 +52,15 @@ namespace NessFC.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> GetPlayer(int id)
         {
-            var player = await _context.Players.FindAsync(id);
+            var player = await playerRepository.FindByIdAsync(id);
 
             if (player == null)
                 return NotFound();
 
-            var position = await _context.Positions.FindAsync(player.PositionId);
+            var position = await positionRepository.FindByIdAsync(player.PositionId);
             player.Position = position;
 
-            var players = _context.Players.Where(player => player.PositionId == position.Id).ToList();
+            var players = playerRepository.List.Where(player => player.PositionId == position.Id).ToList();
 
             player.Position.Players = players;
 
@@ -71,7 +75,8 @@ namespace NessFC.Controllers
         {
             player.Id = id;
 
-            _context.Entry(player).State = EntityState.Modified;
+            //_context.Entry(player).State = EntityState.Modified;
+            playerRepository.Edit(player);
 
             try
             {
@@ -79,7 +84,7 @@ namespace NessFC.Controllers
             }
             catch(DbUpdateConcurrencyException)
             {
-                player = await _context.Players.FindAsync(id);
+                player = await playerRepository.FindByIdAsync(id);
 
                 if (player == null)
                     return NotFound();
@@ -95,12 +100,12 @@ namespace NessFC.Controllers
         [HttpPost]
         public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
-            var position = await _context.Positions.FindAsync(player.PositionId);
+            var position = await positionRepository.FindByIdAsync(player.PositionId);
 
             if (position == null)
                 return NotFound();
 
-            _context.Players.Add(player);
+            playerRepository.Add(player);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPlayer", new { id = player.Id }, player);
@@ -112,12 +117,12 @@ namespace NessFC.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Player>> DeletePlayer(int id)
         {
-            var player = await _context.Players.FindAsync(id);
+            var player = await playerRepository.FindByIdAsync(id);
 
             if (player == null)
                 return NotFound();
 
-            _context.Players.Remove(player);
+            playerRepository.Delete(player);
             await _context.SaveChangesAsync();
 
             return player;
